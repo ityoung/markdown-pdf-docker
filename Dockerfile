@@ -13,6 +13,9 @@ RUN sed -i 's/deb.debian.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apt/sources.li
   && apt-get update -y \
   && apt-get install -y libfontconfig1 fonts-ipafont-gothic fonts-wqy-zenhei fonts-thai-tlwg fonts-kacst ttf-freefont
 
+# Speed up Downloading PhantomJS
+ARG PHANTOMJS_CDNURL="https://npm.taobao.org/dist/phantomjs"
+
 RUN npm config set registry https://registry.npm.taobao.org \
   && npm install -g markdown-pdf --unsafe-perm
 
